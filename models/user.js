@@ -13,8 +13,13 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    }
-    // habits to be added
+    },
+    habits: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Habit'
+        }
+    ]
 },{
     timestamps: true
 })
