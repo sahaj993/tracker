@@ -1,5 +1,17 @@
 <h1>Tasks</h1>
 
+<div>
+    <ul>
+        <% for (habit of habits){ %>
+            <li>
+                <%= habit.content %>
+                <%= habit.freq %>
+                <%= habit.streak %>
+            </li>
+        <% } %>
+    </ul>
+</div>
+
 <form action="/habits/create" method="POST">
     <input type="text" name="habit" placeholder="Enter Habit" required>
     <input type="text" name="frequency" placeholder="Frequency" required>
