@@ -1,20 +1,31 @@
 <h1>Tasks</h1>
 
-<div>
-    <ul>
-        <% for (habit of habits){ %>
-            <li>
-                <%= habit.content %>
-                <%= habit.freq %>
-                <%= habit.streak %>
-            </li>
-        <% } %>
-    </ul>
-</div>
+<%= user.name %>
 
 <form action="/habits/create" method="POST">
     <input type="text" name="habit" placeholder="Enter Habit" required>
-    <input type="text" name="frequency" placeholder="Frequency" required>
-    <input type="text" name="streak" placeholder="Streak" required>
+    <label>Frequency</label>
+    <select name="frequency">
+        <option selected>Daily</option>
+        <option>Weekly</option>
+        <option>Twice a Day</option>
+    </select>
+    <label>Time</label>
+    
     <input type="submit" value="Submit">
 </form>
+
+<div>
+    <%= locals.user.id %>
+    <ul>
+        <% for (habit of habits){ %>
+        
+                <% if(locals.user.id == habit.user){ %>
+                        <li>
+                            <%= habit.content %>
+                            <a href="/habits/delete/<%= habit.id %>">Delete</a>
+                        </li>
+                <% } %>
+        <% } %>
+    </ul>
+</div>

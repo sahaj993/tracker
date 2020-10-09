@@ -11,3 +11,14 @@ module.exports.create = function(req,res){
         return res.redirect('back');
     })
 }
+
+module.exports.delete = function(req, res){
+    Habit.findById(req.params.id, function(err, habit){
+        if (habit){
+            habit.remove();
+            return res.redirect('back');
+        }else{
+            return res.redirect('back');
+        }
+    })
+}

@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const Habit = require('../models/habit')
+const Habit = require('../models/habit');
 
 module.exports.profile = function(req, res){
     Habit.find({}, function(err, habits){

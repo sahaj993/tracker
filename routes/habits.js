@@ -3,6 +3,7 @@ const router = express.Router();
 
 const habitSchema = require('../controller/habit_controller');
 
-router.use('/create', habitSchema.create);
+router.post('/create', habitSchema.create);
+router.get('/delete/:id', habitSchema.delete);
 
 module.exports = router;

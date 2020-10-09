@@ -9,10 +9,7 @@ const habitSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    streak: {
-        type: Number,
-        required: true
-    },
+    streak: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
